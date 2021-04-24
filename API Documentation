@@ -1,0 +1,67 @@
+https://rithika-gcc-task-4.herokuapp.com
+
+GET Request -> Reading all Guvis
+    Endpoints -> /guvis
+    Response example -> returns an array of all guvis
+        [{
+            "_id":"6083b59ca69f680015b8a9",
+            "name":"guvi",
+            "label:"New"
+        }]
+
+
+GET Request -> Reading a single guvi using its unique id
+    Endpoints -> /guvis/:guviId
+    Parameter -> guviId,  Datatype -> String, Required Parameter
+    Response example ->
+        [{
+            "_id":"6083b59cdfa69f680015b8",
+            "name":"guvi",
+            "label":"New"
+        }]
+
+POST Request -> Creating a guvi
+    Endpoints -> /guvis
+    Request example ->
+    {
+        "name":"guvi",
+        "label":"New",
+        "price":"Infinity",
+        "description":"Good",
+        "featured": true
+    }
+
+    Schema ->
+    name            String     required
+    label           String     required
+    price           String     optional
+    description     String     optional
+    featured        Boolean    optional
+
+    Response example ->
+    {
+        "_id":"6083b59cdfa69f680015b8",
+        "name":"guvi",
+        "label":"New"
+    }
+
+PATCH Request -> Updating a guvi via its unique id(allowed updates are name and label only)
+    Endpoints -> /guvi
+    Request Example ->
+    {
+        "_id":"6083b59cdfa69f680015b8",
+        "name":"guvi"
+    }
+    Response example -> 
+    {
+        "_id":"6083b59cdfa69f680015b8",
+        "name":"guvi",
+        "label":"New"
+    }
+
+DELETE Request -> Deleting a guvi via its unique id
+    Endpoints -> /guvis/:guviId
+    Response
+    {
+        "message":"Guvi succesfully deleted"
+    }
